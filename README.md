@@ -62,47 +62,6 @@ La aplicación reúne cuatro dimensiones profesionales:
 2. **Builder y desarrollador de productos digitales.** Construyo prototipos y aplicaciones web con IA y tecnologías emergentes.
 3. **Filmmaker y creador audiovisual.** Desarrollo guiones, piezas y narrativas para comunicar con claridad.
 4. **Artista visual.** Exploro abstracción, composición, textura, color y ritmo como formas de pensamiento.
-
-La narrativa que las une es simple:
-
-> Una práctica, múltiples medios.
-
-## Stack y enfoque técnico
-
-- Next.js con App Router.
-- TypeScript.
-- Tailwind CSS.
-- Lucide Icons.
-- Componentes reutilizables.
-- Diseño responsive mobile-first.
-- Metadata, Open Graph, sitemap y robots.
-- Contenido editable desde archivos TypeScript.
-- Placeholders abstractos preparados para sustituirse por imágenes o videos reales.
-
-## Ejecutar en local
-
-Requisitos: Node.js 22+.
-
-```bash
-npm install
-npm run dev
-```
-
-Abre `http://localhost:3000`.
-
-## Desplegar en Vercel
-
-Importa el repositorio en Vercel. El comando de build es `npm run build` y no se requieren variables de entorno en esta primera versión.
-
-## Editar contenido
-
-- Proyectos: [`data/projects.ts`](data/projects.ts)
-- Herramientas: [`data/tools.ts`](data/tools.ts)
-- Trayectoria y principios: [`data/experience.ts`](data/experience.ts)
-- Placeholders visuales: [`components/ui/AbstractVisual.tsx`](components/ui/AbstractVisual.tsx)
-
-## Contacto
-
 Estoy disponible para conversar sobre educación digital, inteligencia artificial, diseño instruccional, productos tecnológicos, creación audiovisual y colaboraciones interdisciplinarias.
 
 — **Maikel Andres Vinces Mendoza**
