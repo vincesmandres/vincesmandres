@@ -1,4 +1,4 @@
-# MAVM. — Creative Technologist & Educator
+# vincesmandres | Creative Technologist & Educator
 
 > Transformo ideas complejas en experiencias visuales, educativas y digitales.
 
