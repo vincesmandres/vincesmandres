@@ -1,0 +1,5 @@
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { Project } from "../../data/projects";
+import { AbstractVisual } from "../ui/AbstractVisual";
+export function CaseStudyHeader({ project }: { project: Project }) { return <><div className="case-header page-shell"><Link className="back-link" href="/projects">← Todos los proyectos</Link><p className="eyebrow">{project.categories.join(" · ")}</p><h1>{project.title}</h1><p className="case-lead">{project.description}</p><div className="case-facts"><div><span>Año</span><strong>{project.year}</strong></div><div><span>Rol</span><strong>{project.role}</strong></div><div><span>Duración</span><strong>{project.duration}</strong></div></div><div className="external-links">{project.website && <a href={project.website} target="_blank" rel="noreferrer">Website <ArrowUpRight size={15} /></a>}{project.github && <a href={project.github} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={15} /></a>}</div></div><div className="page-shell case-visual"><AbstractVisual variant={project.visual} large /></div></>; }

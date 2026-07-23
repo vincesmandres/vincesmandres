@@ -1,0 +1,2 @@
+export const timeline = ["Formación en Ingeniería Civil", "Experiencia docente", "Diseño de proyectos STEAM", "Desarrollo de productos digitales", "Exploración de IA y Web3", "Producción de contenidos y proyectos audiovisuales"];
+export const principles = ["Claridad antes que complejidad.", "Tecnología subordinada al problema.", "Evidencia antes que afirmaciones.", "Aprendizaje mediante construcción.", "Diseño responsable.", "Iteración continua."];

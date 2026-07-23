@@ -1,0 +1,2 @@
+const steps = [["01", "Investigar", "Comprendo el contexto, las personas y el problema."], ["02", "Diseñar", "Organizo la información y construyo una experiencia coherente."], ["03", "Construir", "Desarrollo prototipos, recursos, productos o narrativas."], ["04", "Evaluar", "Pruebo, documento y mejoro a partir de resultados."]];
+export function ProcessSteps() { return <div className="process-grid">{steps.map(([number, title, text]) => <div className="process-step" key={number}><span>{number}</span><h3>{title}</h3><p>{text}</p></div>)}</div>; }

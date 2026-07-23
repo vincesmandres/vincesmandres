@@ -1,0 +1,1 @@
+export function SectionHeading({ eyebrow, title, intro, dark = false }: { eyebrow?: string; title: string; intro?: string; dark?: boolean }) { return <div className={`section-heading ${dark ? "on-dark" : ""}`}><div>{eyebrow && <p className="eyebrow">{eyebrow}</p>}<h2>{title}</h2></div>{intro && <p className="section-intro">{intro}</p>}</div>; }

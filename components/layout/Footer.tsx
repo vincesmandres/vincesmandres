@@ -1,0 +1,2 @@
+import Link from "next/link";
+export function Footer() { return <footer className="footer"><div><p className="logo">MAVM<span>.</span></p><p className="footer-note">Diseñado y construido entre educación, creatividad y tecnología.</p></div><div className="footer-links"><Link href="/projects">Proyectos</Link><Link href="/about">Sobre mí</Link><Link href="/contact">Contacto</Link></div><p className="footer-year">© {new Date().getFullYear()} Maikel Andres Vinces Mendoza</p></footer>; }

@@ -1,0 +1,5 @@
+import type { Metadata } from "next";
+import { ContactForm } from "../../components/ui/ContactForm";
+import { SocialLinks } from "../../components/ui/SocialLinks";
+export const metadata: Metadata = { title: "Contacto" };
+export default function ContactPage() { return <main><div className="page-shell page-heading"><p className="eyebrow">Abrir conversación</p><h1>Hablemos sobre educación, tecnología o proyectos creativos.</h1></div><section className="page-shell section" style={{paddingTop:0}}><div className="contact-layout"><aside className="contact-aside"><p className="large-copy">Cuéntame qué quieres investigar, enseñar o construir.</p><p className="body-copy">El formulario es una primera versión visual preparada para conectarse a Formspree, Resend o una Server Action.</p><SocialLinks /><p className="body-copy" style={{marginTop:40}}>Correo: <a className="text-link" href="mailto:maikel.vinces@example.com">maikel.vinces@example.com</a></p></aside><ContactForm /></div></section></main>; }

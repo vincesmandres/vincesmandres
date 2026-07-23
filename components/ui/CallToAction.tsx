@@ -1,0 +1,2 @@
+import Link from "next/link";
+export function CallToAction({ title, text, primary = "Contactarme", href = "/contact" }: { title: string; text: string; primary?: string; href?: string }) { return <section className="cta"><div><p className="eyebrow">Siguiente paso</p><h2>{title}</h2><p>{text}</p></div><div className="cta-actions"><Link className="button button-light" href={href}>{primary}</Link><Link className="text-link light" href="/about">Ver mi trayectoria →</Link></div></section>; }
