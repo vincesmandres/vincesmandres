@@ -65,3 +65,15 @@ La aplicación reúne cuatro dimensiones profesionales:
 Estoy disponible para conversar sobre educación digital, inteligencia artificial, diseño instruccional, productos tecnológicos, creación audiovisual y colaboraciones interdisciplinarias.
 
 — **Maikel Andres Vinces Mendoza**
+
+## Laboratorios GD
+
+El portal de laboratorios está disponible en `/laboratorios`. Incluye el espacio inicial de Matemática · Álgebra, autenticación y creación de espacios.
+
+### Configuración de Supabase
+
+1. Crea un proyecto en Supabase.
+2. Ejecuta `supabase/schema.sql` desde el SQL Editor.
+3. Copia `public/laboratorios/supabase-config.example.js` como `public/laboratorios/supabase-config.js` y completa el Project URL y la anon key.
+
+La aplicación usa Supabase Auth y RLS para que cada usuario solo vea y cree sus propios espacios. Si no existe el archivo de configuración, el laboratorio funciona en modo local para desarrollo visual.

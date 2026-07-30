@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0e111b" />
+  <title>Laboratorios GD · Espacios de aprendizaje</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#inicio"><span class="brand-mark">G</span><span>laboratorios<strong>GD</strong></span></a>
+      <div class="side-label">MI ESPACIO</div>
+      <nav class="nav-list" id="space-nav"></nav>
+      <button class="add-space side-add" id="open-add"><span>+</span> Añadir espacio</button>
+      <div class="sidebar-bottom"><div class="mini-orbit"></div><p>Aprende haciendo.<br><em>Explora sin límites.</em></p></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><button class="mobile-menu" id="mobile-menu">☰</button><div class="crumb">Laboratorios <span>/</span> Inicio</div><div class="top-actions"><button class="icon-button" aria-label="Notificaciones">♢<i></i></button><div class="profile" id="profile"><div class="avatar" id="avatar">?</div><div><b id="profile-name">Invitado</b><small id="profile-email">Explora tus espacios</small></div><span class="chevron">⌄</span></div><div class="profile-menu hidden" id="profile-menu"><button id="logout">Cerrar sesión</button></div></div></header>
+      <div class="page-wrap" id="app"></div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="auth-modal"><section class="modal auth-modal"><button class="close" data-close="auth-modal">×</button><div class="modal-kicker">TU PRÓXIMO EXPERIMENTO</div><h2 id="auth-title">Crea tu cuenta</h2><p id="auth-subtitle">Guarda tu avance y vuelve cuando quieras.</p><form id="auth-form"><label id="name-field">Nombre<input id="auth-name" type="text" placeholder="Tu nombre" /></label><label>Correo electrónico<input id="auth-email" type="email" placeholder="hola@ejemplo.com" required /></label><label>Contraseña<input id="auth-password" type="password" placeholder="Mínimo 6 caracteres" minlength="6" required /></label><div class="form-error" id="auth-error"></div><button class="primary full" type="submit" id="auth-submit">Crear cuenta</button></form><p class="switch-auth" id="switch-auth">¿Ya tienes una cuenta? <button type="button">Inicia sesión</button></p></section></div>
+  <div class="modal-backdrop hidden" id="space-modal"><section class="modal"><button class="close" data-close="space-modal">×</button><div class="modal-kicker">NUEVO ESPACIO</div><h2>Añade una nueva materia</h2><p>Organiza tus laboratorios por tema y vuelve a ellos desde tu menú.</p><form id="space-form"><label>Nombre del espacio<input id="space-name" type="text" placeholder="Ej. Física · Mecánica" required /></label><label>Descripción<input id="space-description" type="text" placeholder="Una breve descripción" required /></label><label>Color<input id="space-color" type="color" value="#ee7651" /></label><button class="primary full" type="submit">Crear espacio</button></form></section></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
