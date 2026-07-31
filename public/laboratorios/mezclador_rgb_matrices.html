@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mezclador RGB por matrices</title>
+<style>
+  :root{
+    --bg:#f4f7fb;
+    --card:#ffffff;
+    --border:#d9e2ec;
+    --text:#162235;
+    --muted:#64748b;
+    --blue:#15589d;
+    --blue2:#0d3f74;
+    --green:#18794e;
+    --red:#c62828;
+    --g:#2e7d32;
+    --b:#1565c0;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:Inter,Segoe UI,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+  }
+  header{
+    background:linear-gradient(135deg,var(--blue),var(--blue2));
+    color:#fff;
+    padding:22px 28px;
+  }
+  header h1{margin:0 0 6px;font-size:clamp(1.5rem,3vw,2.2rem)}
+  header p{margin:0;opacity:.93}
+  main{
+    max-width:1280px;
+    margin:22px auto;
+    padding:0 18px 40px;
+    display:grid;
+    grid-template-columns:1.2fr .95fr;
+    gap:20px;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    box-shadow:0 8px 24px rgba(24,49,83,.08);
+    padding:20px;
+  }
+  h2{margin-top:0;font-size:1.18rem}
+  .triple{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+  }
+  .matrixBox{
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:14px;
+    background:#fbfdff;
+  }
+  .matrixBox h3{
+    margin:0 0 10px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:1.05rem;
+  }
+  .dot{width:14px;height:14px;border-radius:50%}
+  .red{background:var(--red)}
+  .green{background:var(--g)}
+  .blue{background:var(--b)}
+  .bracketWrap{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+  }
+  .bracket{
+    font-size:6rem;
+    line-height:.8;
+    font-family:Georgia,serif;
+    font-weight:300;
+  }
+  .matrix{
+    display:grid;
+    grid-template-columns:repeat(2,72px);
+    gap:8px;
+  }
+  .matrix input{
+    width:72px;
+    height:54px;
+    border:2px solid var(--border);
+    border-radius:10px;
+    text-align:center;
+    font-weight:700;
+    font-size:1rem;
+    outline:none;
+  }
+  .matrix input:focus{border-color:var(--blue)}
+  .controls{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:center;
+    margin-top:16px;
+  }
+  button{
+    border:none;
+    border-radius:10px;
+    padding:10px 14px;
+    font-weight:700;
+    cursor:pointer;
+    color:#fff;
+    background:var(--blue);
+  }
+  button.secondary{background:#e9eef5;color:var(--text)}
+  button.greenbtn{background:var(--green)}
+  .channelToggles{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-top:8px;
+  }
+  .pill{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 14px;
+    border-radius:999px;
+    border:1px solid var(--border);
+    background:#fff;
+    font-weight:700;
+  }
+  .visual{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .pixelGrid{
+    width:min(100%,380px);
+    aspect-ratio:1;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    margin:0 auto;
+    border:4px solid #111;
+  }
+  .pixel{
+    border:1px solid #111;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-weight:800;
+    transition:.15s transform;
+  }
+  .pixel:hover{transform:scale(.98)}
+  .pixel small{
+    position:absolute;
+    left:7px;
+    top:6px;
+    font-size:.78rem;
+    color:rgba(255,255,255,.9);
+    text-shadow:0 1px 3px rgba(0,0,0,.6);
+  }
+  .pixel span{
+    padding:5px 8px;
+    border-radius:8px;
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(4px);
+    color:#fff;
+    text-shadow:0 1px 3px rgba(0,0,0,.55);
+    font-size:.95rem;
+  }
+  .readout{
+    border-left:5px solid var(--green);
+    background:#eef8f0;
+    padding:14px;
+    border-radius:10px;
+    line-height:1.55;
+  }
+  .formula{
+    font-family:Cambria,Georgia,serif;
+    background:#f8fafc;
+    border:1px solid var(--border);
+    padding:12px;
+    border-radius:10px;
+    text-align:center;
+  }
+  .legend{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+  }
+  .legend div{
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:10px;
+    text-align:center;
+    font-size:.92rem;
+    background:#fff;
+  }
+  .activity{grid-column:1/-1}
+  .questionGrid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+  }
+  .question{
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:14px;
+    background:#fcfdff;
+  }
+  .question input{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    border:1px solid var(--border);
+    border-radius:8px;
+  }
+  .feedback{margin-top:8px;font-weight:700;min-height:22px}
+  .mini{
+    color:var(--muted);
+    font-size:.92rem;
+  }
+  @media(max-width:960px){
+    main{grid-template-columns:1fr}
+    .activity{grid-column:auto}
+    .triple{grid-template-columns:1fr}
+    .questionGrid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Mezclador RGB por matrices</h1>
+  <p>Cada píxel se construye con tres entradas: roja, verde y azul. Modifique las matrices y observe el color resultante.</p>
+</header>
+
+<main>
+  <section class="card">
+    <h2>1. Capas matriciales</h2>
+    <div class="formula">
+      En cada posición \((i,j)\), el píxel es: <strong>(R<sub>ij</sub>, G<sub>ij</sub>, B<sub>ij</sub>)</strong>
+    </div>
+
+    <div class="triple" style="margin-top:16px">
+      <div class="matrixBox">
+        <h3><span class="dot red"></span> Matriz R</h3>
+        <div class="bracketWrap">
+          <span class="bracket">[</span>
+          <div class="matrix" id="rMatrix"></div>
+          <span class="bracket">]</span>
+        </div>
+      </div>
+
+      <div class="matrixBox">
+        <h3><span class="dot green"></span> Matriz G</h3>
+        <div class="bracketWrap">
+          <span class="bracket">[</span>
+          <div class="matrix" id="gMatrix"></div>
+          <span class="bracket">]</span>
+        </div>
+      </div>
+
+      <div class="matrixBox">
+        <h3><span class="dot blue"></span> Matriz B</h3>
+        <div class="bracketWrap">
+          <span class="bracket">[</span>
+          <div class="matrix" id="bMatrix"></div>
+          <span class="bracket">]</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="channelToggles">
+      <label class="pill"><input type="checkbox" id="toggleR" checked> Canal R activo</label>
+      <label class="pill"><input type="checkbox" id="toggleG" checked> Canal G activo</label>
+      <label class="pill"><input type="checkbox" id="toggleB" checked> Canal B activo</label>
+    </div>
+
+    <div class="controls">
+      <button id="randomBtn">Aleatorizar</button>
+      <button class="secondary" id="warmBtn">Tonos cálidos</button>
+      <button class="secondary" id="coolBtn">Tonos fríos</button>
+      <button class="greenbtn" id="resetBtn">Restablecer ejemplo</button>
+    </div>
+    <p class="mini">Cada entrada debe estar entre 0 y 255. Desactive canales para observar cómo cambia la mezcla.</p>
+  </section>
+
+  <section class="card visual">
+    <div>
+      <h2>2. Resultado físico</h2>
+      <div class="pixelGrid" id="pixelGrid"></div>
+    </div>
+
+    <div class="readout" id="readout">
+      Seleccione un píxel para ver su triplete RGB, el canal dominante y el color aproximado.
+    </div>
+
+    <div class="legend">
+      <div>R alto → rojo</div>
+      <div>G alto → verde</div>
+      <div>B alto → azul</div>
+      <div>R + G altos → amarillo/naranja</div>
+    </div>
+  </section>
+
+  <section class="card activity">
+    <h2>3. Comprueba lo aprendido</h2>
+    <div class="questionGrid">
+      <div class="question">
+        <strong>1.</strong> ¿Cuál es el triplete RGB del píxel <strong>(2,1)</strong>?
+        <input id="q1" type="text" placeholder="Ejemplo: 25,35,220">
+        <div class="feedback" id="f1"></div>
+      </div>
+
+      <div class="question">
+        <strong>2.</strong> ¿Qué canal domina en el píxel <strong>(2,1)</strong>?
+        <input id="q2" type="text" placeholder="rojo, verde o azul">
+        <div class="feedback" id="f2"></div>
+      </div>
+
+      <div class="question">
+        <strong>3.</strong> ¿Qué color aproximado se observa físicamente en <strong>(2,1)</strong>?
+        <input id="q3" type="text" placeholder="azul intenso, rojo, verde...">
+        <div class="feedback" id="f3"></div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="checkBtn">Comprobar respuestas</button>
+      <button class="secondary" id="showBtn">Mostrar solución</button>
+    </div>
+  </section>
+</main>
+
+<script>
+const initialR = [[230,40],[25,240]];
+const initialG = [[45,210],[35,180]];
+const initialB = [[35,60],[220,40]];
+
+let R = initialR.map(row => [...row]);
+let G = initialG.map(row => [...row]);
+let B = initialB.map(row => [...row]);
+let selected = null;
+
+const rMatrix = document.getElementById("rMatrix");
+const gMatrix = document.getElementById("gMatrix");
+const bMatrix = document.getElementById("bMatrix");
+const pixelGrid = document.getElementById("pixelGrid");
+const readout = document.getElementById("readout");
+
+function clamp(v){
+  v = Number(v);
+  if(Number.isNaN(v)) return 0;
+  return Math.max(0, Math.min(255, Math.round(v)));
+}
+
+function textColor(r,g,b){
+  const luma = 0.299*r + 0.587*g + 0.114*b;
+  return luma < 150 ? "#fff" : "#111";
+}
+
+function dominantChannel(r,g,b){
+  const max = Math.max(r,g,b);
+  const dom = [];
+  if(r === max) dom.push("rojo");
+  if(g === max) dom.push("verde");
+  if(b === max) dom.push("azul");
+  return dom.join(" y ");
+}
+
+function approxColorName(r,g,b){
+  if(r < 35 && g < 35 && b < 35) return "negro";
+  if(r > 220 && g > 220 && b > 220) return "blanco";
+  if(Math.abs(r-g) < 20 && Math.abs(g-b) < 20) return "gris";
+
+  const max = Math.max(r,g,b);
+  if(r > 180 && g > 150 && b < 100) return "amarillo o naranja";
+  if(r > 180 && b > 180 && g < 120) return "magenta";
+  if(g > 160 && b > 160 && r < 120) return "cian";
+
+  if(max === r){
+    if(r > 180 && g < 100 && b < 100) return "rojo intenso";
+    return "rojizo";
+  }
+  if(max === g){
+    if(g > 180 && r < 120 && b < 120) return "verde intenso";
+    return "verdoso";
+  }
+  if(max === b){
+    if(b > 180 && r < 120 && g < 120) return "azul intenso";
+    return "azulado";
+  }
+  return "mezcla de color";
+}
+
+function activeChannelValue(channel, value){
+  const checked = document.getElementById("toggle" + channel).checked;
+  return checked ? value : 0;
+}
+
+function buildInputs(container, matrix, label){
+  container.innerHTML = "";
+  for(let i=0;i<2;i++){
+    for(let j=0;j<2;j++){
+      const input = document.createElement("input");
+      input.type = "number";
+      input.min = 0;
+      input.max = 255;
+      input.value = matrix[i][j];
+      input.setAttribute("aria-label", `${label}${i+1}${j+1}`);
+      input.addEventListener("input", e => {
+        matrix[i][j] = clamp(e.target.value);
+        e.target.value = matrix[i][j];
+        updatePixels();
+      });
+      container.appendChild(input);
+    }
+  }
+}
+
+function buildGrid(){
+  pixelGrid.innerHTML = "";
+  for(let i=0;i<2;i++){
+    for(let j=0;j<2;j++){
+      const cell = document.createElement("div");
+      cell.className = "pixel";
+      cell.dataset.i = i;
+      cell.dataset.j = j;
+      cell.innerHTML = `<small>${i+1},${j+1}</small><span></span>`;
+      cell.addEventListener("click", () => selectPixel(i,j));
+      pixelGrid.appendChild(cell);
+    }
+  }
+}
+
+function updatePixels(){
+  const cells = [...pixelGrid.children];
+  cells.forEach((cell, idx) => {
+    const i = Math.floor(idx/2);
+    const j = idx%2;
+    const r = activeChannelValue("R", R[i][j]);
+    const g = activeChannelValue("G", G[i][j]);
+    const b = activeChannelValue("B", B[i][j]);
+    cell.style.background = `rgb(${r},${g},${b})`;
+    cell.style.color = textColor(r,g,b);
+    cell.querySelector("span").textContent = `(${r},${g},${b})`;
+    cell.style.outline = selected && selected[0]===i && selected[1]===j ? "4px solid #15589d" : "none";
+  });
+  if(selected) selectPixel(selected[0],selected[1],false);
+}
+
+function selectPixel(i,j,refresh=true){
+  selected = [i,j];
+  const r = activeChannelValue("R", R[i][j]);
+  const g = activeChannelValue("G", G[i][j]);
+  const b = activeChannelValue("B", B[i][j]);
+  const dom = dominantChannel(r,g,b);
+  const color = approxColorName(r,g,b);
+  readout.innerHTML = `
+    <strong>Píxel (${i+1},${j+1})</strong><br>
+    Triplete RGB: <strong>(${r}, ${g}, ${b})</strong><br>
+    Canal dominante: <strong>${dom}</strong><br>
+    Color aproximado: <strong>${color}</strong>
+  `;
+  if(refresh) updatePixels();
+}
+
+function clearFeedback(){
+  ["f1","f2","f3"].forEach(id => document.getElementById(id).textContent = "");
+}
+
+function resetAll(){
+  R = initialR.map(row => [...row]);
+  G = initialG.map(row => [...row]);
+  B = initialB.map(row => [...row]);
+  document.getElementById("toggleR").checked = true;
+  document.getElementById("toggleG").checked = true;
+  document.getElementById("toggleB").checked = true;
+  selected = null;
+  buildAll();
+  clearFeedback();
+}
+
+function buildAll(){
+  buildInputs(rMatrix, R, "R");
+  buildInputs(gMatrix, G, "G");
+  buildInputs(bMatrix, B, "B");
+  buildGrid();
+  updatePixels();
+}
+
+function randomInt(min,max){
+  return Math.floor(Math.random()*(max-min+1))+min;
+}
+
+document.getElementById("randomBtn").onclick = () => {
+  R = [[randomInt(0,255),randomInt(0,255)],[randomInt(0,255),randomInt(0,255)]];
+  G = [[randomInt(0,255),randomInt(0,255)],[randomInt(0,255),randomInt(0,255)]];
+  B = [[randomInt(0,255),randomInt(0,255)],[randomInt(0,255),randomInt(0,255)]];
+  selected = null;
+  buildAll();
+  clearFeedback();
+};
+
+document.getElementById("warmBtn").onclick = () => {
+  R = [[randomInt(150,255),randomInt(150,255)],[randomInt(120,255),randomInt(140,255)]];
+  G = [[randomInt(60,200),randomInt(70,210)],[randomInt(50,180),randomInt(70,190)]];
+  B = [[randomInt(0,90),randomInt(0,80)],[randomInt(0,70),randomInt(0,90)]];
+  selected = null;
+  buildAll();
+  clearFeedback();
+};
+
+document.getElementById("coolBtn").onclick = () => {
+  R = [[randomInt(0,90),randomInt(0,100)],[randomInt(0,80),randomInt(0,110)]];
+  G = [[randomInt(20,150),randomInt(30,170)],[randomInt(40,160),randomInt(30,150)]];
+  B = [[randomInt(120,255),randomInt(150,255)],[randomInt(140,255),randomInt(150,255)]];
+  selected = null;
+  buildAll();
+  clearFeedback();
+};
+
+document.getElementById("resetBtn").onclick = resetAll;
+
+["toggleR","toggleG","toggleB"].forEach(id => {
+  document.getElementById(id).addEventListener("change", updatePixels);
+});
+
+document.getElementById("checkBtn").onclick = () => {
+  const expectedRGB = `${R[1][0]},${G[1][0]},${B[1][0]}`.replace(/\s+/g,"");
+  const userRGB = document.getElementById("q1").value.replace(/\s+/g,"").replace(/[()]/g,"");
+  const dom = dominantChannel(R[1][0], G[1][0], B[1][0]);
+  const approx = approxColorName(R[1][0], G[1][0], B[1][0]);
+
+  document.getElementById("f1").textContent =
+    userRGB === expectedRGB ? "Correcto." : "Revise las entradas R21, G21 y B21.";
+
+  const q2 = document.getElementById("q2").value.toLowerCase().trim();
+  document.getElementById("f2").textContent =
+    q2.includes(dom.split(" y ")[0]) ? "Correcto." : "Compare los tres valores y ubique el mayor.";
+
+  const q3 = document.getElementById("q3").value.toLowerCase().trim();
+  const keywords = approx.split(" o ").flatMap(x => x.split(" y "));
+  const ok = keywords.some(k => q3.includes(k.trim().split(" ")[0]));
+  document.getElementById("f3").textContent =
+    ok ? "Correcto." : "Observe el canal dominante y el aspecto del píxel.";
+};
+
+document.getElementById("showBtn").onclick = () => {
+  const dom = dominantChannel(R[1][0], G[1][0], B[1][0]);
+  const approx = approxColorName(R[1][0], G[1][0], B[1][0]);
+  document.getElementById("f1").textContent = `(${R[1][0]}, ${G[1][0]}, ${B[1][0]})`;
+  document.getElementById("f2").textContent = dom;
+  document.getElementById("f3").textContent = approx;
+};
+
+resetAll();
+</script>
+</body>
+</html>
