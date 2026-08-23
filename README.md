@@ -1,67 +1,166 @@
-# vincesmandres | Creative Technologist & Educator
+# Andres Vinces
 
-> Transformo ideas complejas en experiencias visuales, educativas y digitales.
+### Builder · Educator · Engineer
 
-## Quién soy
+I build at the intersection of **software, data, Web3 and education** — turning ideas into working products, experiments and open-source projects.
 
-Soy **Maikel Andres Vinces Mendoza**: ingeniero civil, docente de Matemática, Física y Programación, diseñador instruccional, builder de productos digitales, filmmaker y artista visual.
+Currently exploring **AI agents, Bitcoin, ZK, data systems and computational science**.
 
-Mi trabajo nace de una convicción: los problemas importantes no aparecen separados por disciplinas. Enseñar también implica diseñar. Construir tecnología también implica comprender a las personas. Comunicar una idea compleja requiere estructura, sensibilidad y una narrativa capaz de conectar con otros.
+[![GitHub](https://img.shields.io/badge/GitHub-vincesmandres-181717?style=flat&logo=github)](https://github.com/vincesmandres)
 
-Por eso trabajo en la intersección entre **educación, inteligencia artificial, desarrollo de productos, comunicación audiovisual y pensamiento visual**. No entiendo estas áreas como identidades desconectadas, sino como distintos medios para investigar, explicar, construir y transformar.
+---
 
-## Qué estoy construyendo
+## Selected Work
 
-Estoy construyendo una práctica profesional y creativa alrededor de una pregunta central:
+<table>
+<tr>
+<td width="50%" valign="top">
 
-> ¿Cómo podemos convertir conocimiento, tecnología y creatividad en experiencias que las personas puedan comprender, utilizar y recordar?
+### VETA
 
-En este portafolio documento esa exploración a través de:
+**Verifiable execution for AI agents.**
 
-- Experiencias de aprendizaje y proyectos STEAM.
-- Aplicaciones prácticas de inteligencia artificial para docentes y profesionales.
-- Productos digitales y prototipos con tecnologías emergentes.
-- Narrativas audiovisuales para comunicar ideas educativas y sociales.
-- Exploraciones artísticas basadas en composición, abstracción, color y estructura.
+A trust layer for agent-driven transactions where intent, evidence and execution can be independently verified.
 
-Uno de los proyectos destacados es **ROMA**, una plataforma de reportes ciudadanos que combina inteligencia artificial, privacidad y visualización geográfica. Fue diseñada y desarrollada como MVP individual durante un Buildathon, donde obtuvo el segundo lugar.
+`AI Agents` `Web3` `Security` `TypeScript`
 
-## Lo que quiero aportar
+[Repository →](https://github.com/vincesmandres/veta)
 
-Quiero contribuir a proyectos que utilicen la tecnología con intención: para mejorar la educación, ampliar el acceso al conocimiento, facilitar procesos complejos y construir herramientas que respeten la autonomía de las personas.
+</td>
 
-Me interesan especialmente las oportunidades relacionadas con:
+<td width="50%" valign="top">
 
-- Docencia digital e inteligencia artificial aplicada a la educación.
-- Diseño instruccional y creación de experiencias de aprendizaje.
-- Capacitación práctica para docentes y equipos profesionales.
-- Diseño y desarrollo de productos digitales.
-- Comunicación audiovisual con propósito educativo o social.
-- Proyectos interdisciplinarios que conecten ciencia, arte, tecnología y sociedad.
+### ROMA
 
-No busco usar la tecnología como demostración de novedad. Busco entender el problema, elegir el medio adecuado y construir algo que realmente valga la pena enseñar, ver o utilizar.
+**Privacy-first civic infrastructure.**
 
-## Cómo pienso y trabajo
+Turns citizen reports into structured, privacy-preserving civic data using AI, Supabase and zero-knowledge identity.
 
-Mi proceso parte de una pregunta y avanza mediante cuatro movimientos:
+`Supabase` `AI` `Semaphore` `CivicTech`
 
-1. **Investigar:** comprender el contexto, las personas y el problema.
-2. **Diseñar:** organizar la información y construir una experiencia coherente.
-3. **Construir:** desarrollar prototipos, recursos, productos o narrativas.
-4. **Evaluar:** probar, documentar y mejorar a partir de resultados.
+[Repository →](https://github.com/vincesmandres/ROMA)
 
-Trabajo con claridad antes que complejidad, evidencia antes que afirmaciones y criterio humano antes que automatización ciega. Para mí, la inteligencia artificial es una herramienta poderosa, pero su valor depende de las preguntas, las fuentes, el contexto y la revisión de quien la utiliza.
+</td>
+</tr>
 
-## Sobre este proyecto
+<tr>
+<td width="50%" valign="top">
 
-Este repositorio es el sitio personal de MAVM. Es también un laboratorio público: un espacio para documentar proyectos, probar ideas, mostrar procesos y hacer visible una práctica que sigue evolucionando.
+### P2P Perps Agent
 
-La aplicación reúne cuatro dimensiones profesionales:
+**Experimental quantitative trading agent.**
 
-1. **Educador y diseñador instruccional.** Diseño experiencias, recursos, evaluaciones y procesos de formación práctica.
-2. **Builder y desarrollador de productos digitales.** Construyo prototipos y aplicaciones web con IA y tecnologías emergentes.
-3. **Filmmaker y creador audiovisual.** Desarrollo guiones, piezas y narrativas para comunicar con claridad.
-4. **Artista visual.** Exploro abstracción, composición, textura, color y ritmo como formas de pensamiento.
-Estoy disponible para conversar sobre educación digital, inteligencia artificial, diseño instruccional, productos tecnológicos, creación audiovisual y colaboraciones interdisciplinarias.
+Research environment for market signals, risk management, backtesting and automated perpetuals strategies.
 
-— **Maikel Andres Vinces Mendoza**
+`Python` `Data` `Agents` `Web3`
+
+[Repository →](https://github.com/vincesmandres/p2p-perps-agent)
+
+</td>
+
+<td width="50%" valign="top">
+
+### REQPY
+
+**Engineering + scientific computing with Python.**
+
+Experiments and tools around signals, seismic data, numerical analysis and computational engineering.
+
+`Python` `SciPy` `Data Science` `Engineering`
+
+[Repository →](https://github.com/vincesmandres/REQPY)
+
+</td>
+</tr>
+</table>
+
+---
+
+## What I Build
+
+```text
+AI / Agents        → autonomous and verifiable systems
+Data               → experiments, signals and computational models
+Web3               → Bitcoin, ZK and decentralized infrastructure
+Education          → tools for learning STEM through computation
+Engineering        → scientific computing + geoscience
+```
+
+---
+
+## Tech I Use
+
+**Languages**
+
+`Python` · `TypeScript` · `JavaScript` · `Rust` · `SQL`
+
+**Build**
+
+`Next.js` · `React` · `Node.js` · `Tailwind CSS` · `Supabase` · `PostgreSQL`
+
+**Data & Scientific Computing**
+
+`Pandas` · `NumPy` · `SciPy` · `Jupyter` · `QGIS`
+
+**Web3**
+
+`Bitcoin` · `Solana` · `Semaphore / ZK`
+
+**Tools**
+
+`Git` · `GitHub` · `Docker` · `Vercel`
+
+---
+
+## Currently Building
+
+```mermaid
+flowchart LR
+    A["AI Agents"] --> B["Trust"]
+    B --> C["Evidence"]
+    C --> D["Verification"]
+    D --> E["Execution"]
+
+    style A fill:#0d1117,stroke:#3fb950,color:#fff
+    style B fill:#0d1117,stroke:#3fb950,color:#fff
+    style C fill:#0d1117,stroke:#3fb950,color:#fff
+    style D fill:#0d1117,stroke:#3fb950,color:#fff
+    style E fill:#0d1117,stroke:#3fb950,color:#fff
+```
+
+My current focus is building systems where **AI can act without requiring blind trust**.
+
+Alongside that, I'm learning and contributing around **Bitcoin + Rust**, experimenting with data-driven agents, and building tools for STEM education.
+
+---
+
+## GitHub Activity
+
+<p align="center">
+  <img
+    src="https://github-readme-stats.vercel.app/api?username=vincesmandres&show_icons=true&hide_border=true&theme=github_dark"
+    height="165"
+  />
+  <img
+    src="https://github-readme-stats.vercel.app/api/top-langs/?username=vincesmandres&layout=compact&hide_border=true&theme=github_dark"
+    height="165"
+  />
+</p>
+
+---
+
+## Background
+
+Civil Engineer turned **educator + product builder**.
+
+I work across STEM education, computational engineering and software development, with a growing focus on **Data Science, AI and decentralized systems**.
+
+The common thread is simple:
+
+> **Learn deeply. Build useful things. Ship them.**
+
+---
+
+<p align="center">
+  <sub>Building from Ecuador · Open to collaboration and open-source work.</sub>
+</p>
