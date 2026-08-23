@@ -1,12 +1,43 @@
+<div align="center">
+
 # Andres Vinces
 
-### Builder · Educator · Engineer
+### Product Builder · Educator · Engineer
 
-I build at the intersection of **software, data, Web3 and education** — turning ideas into working products, experiments and open-source projects.
+**I build systems where software, data and trust meet.**
 
-Currently exploring **AI agents, Bitcoin, ZK, data systems and computational science**.
+Turning ideas into working products across **AI · Data · Web3 · Education**.
 
-[![GitHub](https://img.shields.io/badge/GitHub-vincesmandres-181717?style=flat&logo=github)](https://github.com/vincesmandres)
+[![GitHub](https://img.shields.io/badge/GitHub-vincesmandres-181717?style=flat-square&logo=github)](https://github.com/vincesmandres)
+[![Ecuador](https://img.shields.io/badge/Building_from-Ecuador-181717?style=flat-square)](https://github.com/vincesmandres)
+
+</div>
+
+---
+
+## Currently Building
+
+<table>
+<tr>
+<td valign="top">
+
+### VETA
+
+**Verifiable execution for AI agents.**
+
+VETA is a trust layer for agent-driven transactions. It separates what an agent *intends* to do from the evidence required to authorize it and the transaction that is ultimately executed.
+
+**Intent → Evidence → Verification → Execution**
+
+`AI Agents` `Security` `Web3` `TypeScript`
+
+[**Repository →**](https://github.com/vincesmandres/veta) · [**Live Demo →**](https://veta-smoky.vercel.app/)
+
+</td>
+</tr>
+</table>
+
+> Current question: **How do we let AI act without requiring blind trust?**
 
 ---
 
@@ -16,59 +47,56 @@ Currently exploring **AI agents, Bitcoin, ZK, data systems and computational sci
 <tr>
 <td width="50%" valign="top">
 
-### VETA
-
-**Verifiable execution for AI agents.**
-
-A trust layer for agent-driven transactions where intent, evidence and execution can be independently verified.
-
-`AI Agents` `Web3` `Security` `TypeScript`
-
-[Repository →](https://github.com/vincesmandres/veta)
-
-</td>
-
-<td width="50%" valign="top">
-
 ### ROMA
 
 **Privacy-first civic infrastructure.**
 
-Turns citizen reports into structured, privacy-preserving civic data using AI, Supabase and zero-knowledge identity.
+Citizen reports become structured civic data while protecting identity through privacy-preserving infrastructure.
 
-`Supabase` `AI` `Semaphore` `CivicTech`
+`AI` `Supabase` `Semaphore` `CivicTech`
 
 [Repository →](https://github.com/vincesmandres/ROMA)
 
 </td>
-</tr>
-
-<tr>
 <td width="50%" valign="top">
 
-### P2P Perps Agent
+### EduSignal
 
-**Experimental quantitative trading agent.**
+**Open infrastructure for educational assessment.**
 
-Research environment for market signals, risk management, backtesting and automated perpetuals strategies.
+A platform for standardizing assessment processes with STEM-oriented workflows and privacy-aware verification.
 
-`Python` `Data` `Agents` `Web3`
+`Education` `TypeScript` `Privacy` `STEM`
 
-[Repository →](https://github.com/vincesmandres/p2p-perps-agent)
+[Repository →](https://github.com/vincesmandres/edu-signal)
 
 </td>
-
+</tr>
+<tr>
 <td width="50%" valign="top">
 
 ### REQPY
 
-**Engineering + scientific computing with Python.**
+**Scientific computing for engineering.**
 
-Experiments and tools around signals, seismic data, numerical analysis and computational engineering.
+Experiments and tools around seismic signals, numerical analysis and computational engineering with Python.
 
 `Python` `SciPy` `Data Science` `Engineering`
 
 [Repository →](https://github.com/vincesmandres/REQPY)
+
+</td>
+<td width="50%" valign="top">
+
+### GeoSkill Proof
+
+**Verifiable learning for geotechnical engineering.**
+
+A practical learning system combining engineering exercises, granular assessment and verifiable skill evidence.
+
+`Engineering` `Education` `TypeScript` `Web3`
+
+[Repository →](https://github.com/vincesmandres/geoskill-proof)
 
 </td>
 </tr>
@@ -78,89 +106,49 @@ Experiments and tools around signals, seismic data, numerical analysis and compu
 
 ## What I Build
 
-```text
-AI / Agents        → autonomous and verifiable systems
-Data               → experiments, signals and computational models
-Web3               → Bitcoin, ZK and decentralized infrastructure
-Education          → tools for learning STEM through computation
-Engineering        → scientific computing + geoscience
-```
+| Area | Focus |
+|---|---|
+| **AI / Agents** | Autonomous systems with evidence, constraints and verification |
+| **Data** | Experiments, signals and computational models |
+| **Web3** | Bitcoin, ZK and trust-minimized infrastructure |
+| **Education** | Tools for learning STEM through computation |
+| **Engineering** | Scientific computing, geoscience and numerical thinking |
 
 ---
 
-## Tech I Use
+## Building With
 
-**Languages**
-
+**Core**  
 `Python` · `TypeScript` · `JavaScript` · `Rust` · `SQL`
 
-**Build**
-
+**Product**  
 `Next.js` · `React` · `Node.js` · `Tailwind CSS` · `Supabase` · `PostgreSQL`
 
-**Data & Scientific Computing**
-
+**Data & Scientific Computing**  
 `Pandas` · `NumPy` · `SciPy` · `Jupyter` · `QGIS`
 
-**Web3**
-
+**Trust & Web3**  
 `Bitcoin` · `Solana` · `Semaphore / ZK`
 
-**Tools**
-
+**Infrastructure**  
 `Git` · `GitHub` · `Docker` · `Vercel`
-
----
-
-## Currently Building
-
-```mermaid
-flowchart LR
-    A["AI Agents"] --> B["Trust"]
-    B --> C["Evidence"]
-    C --> D["Verification"]
-    D --> E["Execution"]
-
-    style A fill:#0d1117,stroke:#3fb950,color:#fff
-    style B fill:#0d1117,stroke:#3fb950,color:#fff
-    style C fill:#0d1117,stroke:#3fb950,color:#fff
-    style D fill:#0d1117,stroke:#3fb950,color:#fff
-    style E fill:#0d1117,stroke:#3fb950,color:#fff
-```
-
-My current focus is building systems where **AI can act without requiring blind trust**.
-
-Alongside that, I'm learning and contributing around **Bitcoin + Rust**, experimenting with data-driven agents, and building tools for STEM education.
-
----
-
-## GitHub Activity
-
-<p align="center">
-  <img
-    src="https://github-readme-stats.vercel.app/api?username=vincesmandres&show_icons=true&hide_border=true&theme=github_dark"
-    height="165"
-  />
-  <img
-    src="https://github-readme-stats.vercel.app/api/top-langs/?username=vincesmandres&layout=compact&hide_border=true&theme=github_dark"
-    height="165"
-  />
-</p>
 
 ---
 
 ## Background
 
-Civil Engineer turned **educator + product builder**.
+**Civil Engineer → Educator → Product Builder**
 
-I work across STEM education, computational engineering and software development, with a growing focus on **Data Science, AI and decentralized systems**.
+I work across STEM education, computational engineering and software development, with a growing focus on **Data Science, AI agents and decentralized systems**.
 
-The common thread is simple:
+Engineering taught me to model systems. Teaching taught me to explain them. Building software lets me turn both into products.
 
 > **Learn deeply. Build useful things. Ship them.**
 
 ---
 
-<p align="center">
-  <sub>Building from Ecuador · Open to collaboration and open-source work.</sub>
-</p>
+<div align="center">
+
+<sub>Building from Ecuador · Open to collaboration and open-source work.</sub>
+
+</div>
